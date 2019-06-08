@@ -1,0 +1,33 @@
+1. <mvc:annotation-driven>同时配置了处理器和适配器
+
+2. 字符过滤器
+<filter>
+<filter-name>encoding</filter-name>
+<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+<init-param>
+<param-name>encoding</param-name>
+<param-value>UTF-8</param-value>
+</init-param>
+<init-param>
+<param-name>forceEncoding</param-name>
+<param-value>true</param-value>
+</init-param>
+</filter>
+<filter-mapping>
+<filter-name>encoding</filter-name>
+<servlet-name>/*</servlet-name>
+</filter-mapping>
+setEncoding()相当于：ServletRequest.setCharacterEncoding(java.lang.String)
+setForceEncoding()的作用是：
+强制ServletResponse的编码格式和ServletRequest的编码格式一样。
+Request是默认设置为true，response默认是false，要true才设置为utf-8
+
+3. Spring MVC过滤器-HiddenHttpMethodFilter
+浏览器form表单只支持GET与POST请求，而DELETE、PUT等method并不支持
+此过滤器可以将这些请求转换为标准的http方法，使得支持GET、POST、PUT与DELETE请求
+HiddenHttpMethodFilter必须作用于dispatcher前，在web.xml先配置
+
+如何发送 PUT 请求和 DELETE 请求呢 ? 
+      * 1. 需要在web.xml配置 HiddenHttpMethodFilter 
+      * 2. 需要发送 POST 请求
+      * 3. 需要在发送 POST 请求时携带一个 name="_method" 的隐藏域, 值为 DELETE 或 PUT

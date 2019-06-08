@@ -1,0 +1,5 @@
+部署是给servlet映射配置一条路径
+部署描述符名为web.xml
+
+/ 开头是web应用根目录，即webapp
+

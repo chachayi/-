@@ -1,0 +1,14 @@
+mybatis是半自动的
+mybatis自动化的地方在于它把数据给我们封装后返回给我们，
+手动的部分在于我们自己来写sql，这样的方式很灵活，我们可以根据需求写最优的sql语句
+
+hibernate的sql很多都是自动生成的，无法直接维护sql；虽有hql，但功能还是不及sql强大
+
+hibernate是全自动的
+sql都帮我们写好了，但是这也是hibernate一个很大的缺点，有时候它给的sql语句并不是最优的，就极大的影响了我们的效率
+
+实际操作
+hql语句错误：1." select 之间加空格  2.不要用括号括住字段
+
+参考网站
+https://www.cnblogs.com/whgk/category/910622.html

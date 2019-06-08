@@ -1,0 +1,7 @@
+何时使用commit ?
+当你在insert数据时，如果没commit，此时数据是在cache中，没有真正提交给数据库;
+commit，就是让数据从cache真正提交给数据库(更改内容查询不到);
+
+在MySQL中执行命令时，通常都直接被确定提交了，所有的命令都会被自动COMMIT
+
+存储引擎为InnoDB 时，当执行了START TRANSACTION或BEGIN命令（MySQL事务处理-删除后回滚）后，将不会自动提交了，只有明确执行了COMMIT命令后才会被提交
